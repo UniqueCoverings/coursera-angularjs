@@ -8,6 +8,7 @@
 
     $scope.lunchItems = "";
     $scope.totalLunchItems = 0;
+    $scope.sayMsg ="This is the msg";
 
     $scope.slpitLunchItems = function () {
       var totalLunchValue = calculateForSplitLunchItems($scope.lunchItems);
@@ -18,10 +19,12 @@
     function calculateForSplitLunchItems(string) {
       var arrayOfLunches = string.split(",");
       var lunchCount = arrayOfLunches.length;
-
-
-      return lunchCount;
-    
+      if (lunchCount <= 3) {
+        $scope.sayMsg = "This is less than 3"
+      } else {
+        $scope.sayMsg = "This is more than 3"
+      }
+      return lunchCount
     };
 
 

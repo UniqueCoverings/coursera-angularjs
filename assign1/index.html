@@ -4,22 +4,39 @@
     <meta charset="utf-8">
     <script src="angular.min.js"></script>
     <script src="app.js" ></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="screen" title="no title">
 
     <title>Assignment 1 Cousera AngularJS</title>
   </head>
   <body ng-app="LunchChecker2000">
-    <div ng-controller="LunchCheckerCtrl">
-      <h1>Lunch Checker 2000</h1>
-      <div>
-        <h3>Please enter the items you would like to eat for lunch (comma seperated)</h3>
-        <input type="text" ng-model="lunchItems" ng-keyup="slpitLunchItems();"></input><br>
-        <button ng-click="splitLunchItems();" >Press Here To Caluculate</button>
-        {{totalLunchItems}}
-        <br>
+    <div class="container">
+      <div ng-controller="LunchCheckerCtrl">
+        <form ng-submit="slpitLunchItems()" >
+          Input lunch items here:
+          <input type="text" ng-model="lunchItems">
+          <input type="submit" id="submit">
+        </form>
+        <p>{{lunchItems}}</p>
+        <p>{{totalLunchItems}}</p>
+        <p>{{sayMsg}}</p>
       </div>
 
+
+      <!-- <div ng-controller="LunchCheckerCtrl">
+        <h1>Lunch Checker 2000</h1>
+        <div class="form-group">
+          <h3>Please enter the items you would like to eat for lunch (comma seperated)</h3>
+          <input type="text" ng-model="lunchItems" class="form-control"><br>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-default" ng-submit="splitLunchItems();" >Check if to much</button>
+        </div>
+        <div class="form-group message">
+          {{totalLunchItems}}
+          {{sayMsg}}
+          <br>
+        </div>
+      </div> -->
     </div>
-
-
   </body>
 </html>
